@@ -123,7 +123,7 @@ const displayDetails = id => {
                 </div>
                 <div class="col-md-8">
                     <h5 class="mt-2">${idTag?.name ?? 'Not available'}</h5>
-                    <p>${idTag?.releaseDate ?? 'Not available'}</p>
+                    <p>${idTag?.releaseDate ?? 'Release date not available'}</p>
                     <hr>
                     <p>Brand: ${idTag?.brand ?? 'Not available'}</p>
                     <p>Chipset: ${idTag?.mainFeatures?.chipSet ?? 'Not available'}</p>
