@@ -123,13 +123,13 @@ const displayDetails = id => {
                 </div>
                 <div class="col-md-8">
                     <h5 class="mt-2">${idTag?.name ?? 'Not available'}</h5>
-                    <p>${idTag?.releaseDate ?? 'Release date not available'}</p>
+                    <p>${idTag.releaseDate ? idTag.releaseDate : 'Release date not available'}</p>
                     <hr>
                     <p>Brand: ${idTag?.brand ?? 'Not available'}</p>
                     <p>Chipset: ${idTag?.mainFeatures?.chipSet ?? 'Not available'}</p>
                     <p>Display Size: ${idTag?.mainFeatures?.displaySize ?? 'Not available'}</p>
                     <p>Memory: ${idTag?.mainFeatures?.memory ?? 'Not available'}</p>
-                    <p>Sensors: ${idTag?.mainFeatures?.sensors ?? 'Not available'}</p>
+                    <p>Sensors: ${idTag.mainFeatures.sensors[0]}, ${idTag.mainFeatures.sensors[1]}, ${idTag.mainFeatures.sensors[2]}, ${idTag.mainFeatures.sensors[3]}, ${idTag.mainFeatures.sensors[4]}, ${idTag.mainFeatures.sensors[5]}</p>
                     <p>Storage: ${idTag?.mainFeatures?.storage ?? 'Not available'}</p>
                     <p>Bluetooth: ${idTag?.others?.Bluetooth ?? 'Not available'}</p>
                     <p>GPS: ${idTag?.others?.GPS ?? 'Not available'}</p>
