@@ -1,3 +1,4 @@
+// loads data
 const loadData = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -12,6 +13,7 @@ const loadData = () => {
         .then(data => displayData(data.data));
 }
 
+// displays data
 const displayData = data => {
     const searchDiv = document.getElementById('search-result');
 
@@ -19,6 +21,13 @@ const displayData = data => {
     searchDiv.textContent = '';
 
     // show results
+    if(data.length == 0) {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <p class="text-center text-danger">No results found.</p>
+        `;
+        searchDiv.appendChild(div);
+    }
     data.forEach(data => {
         const div = document.createElement('div');
         const phoneId = data.slug;
@@ -49,6 +58,7 @@ const displayData = data => {
     })
 }
 
+// loads details for a specific phone
 const loadDetails = (phoneId) => {
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
     fetch(url)
@@ -56,18 +66,23 @@ const loadDetails = (phoneId) => {
         .then(data => displayDetails(data));
 }
 
+// displays phone details as modal
 const displayDetails = id => {
     const idTag = id.data;
     const detailDiv = document.getElementById('show-details');
 
     const div = document.createElement('div');
-    
-    // clear previous search results
-    div.textContent = '';
+    div.classList.add('.modal-dialog.modal-lg');
 
     div.innerHTML = `
-        <div class="modal-dialog modal-lg">
-            <img src="${idTag.image}" alt="">
+        
+        <div class="modal-content p-4 m-2">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button onclick="closeModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="${idTag.image}" alt="">
                 <table class="table table-striped">
                     <tr>
                         <th>Chipset</th>
@@ -83,22 +98,26 @@ const displayDetails = id => {
                     </tr>
                     <tr>
                         <th>Sensors</th>
-                        <td>${idTag.mainFeatures.sensors}</td>
+                        <td>${idTag.mainFeatures.sensors }</td>
                     </tr>
                     <tr>
                         <th>Storage</th>
                         <td>${idTag.mainFeatures.storage}</td>
                     </tr>
                     <tr>
-                        <th>Others</th>
-                        <td>${idTag?.others ?? 'Not available'}</td>
-                    </tr>
-                    <tr>
-                        <th>Others</th>
+                        <th>Release Date</th>
                         <td>${idTag?.releaseDate ?? 'Not available'}</td>
                     </tr>
                 </table>
+            </div>
         </div>
+        
     `
     detailDiv.appendChild(div);
+}
+
+// closes modal
+const closeModal = () => {
+    const detailDiv = document.getElementById('show-details');
+    detailDiv.innerHTML = '';
 }
