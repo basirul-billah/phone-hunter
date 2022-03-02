@@ -1,16 +1,12 @@
-const fetchData = searchTerm => {
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchTerm}`;
-    console.log(url);
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayData(data.data));
-}
-
 const loadData = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     searchField.value = '';
-    fetchData(searchText);
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+    console.log(url);
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayData(data.data));
 }
 
 const displayData = data => {
@@ -45,7 +41,6 @@ const displayData = data => {
 }
 
 const loadDetails = () => {
-    fetchData()
     const detailDiv = document.getElementById('show-details');
     const div = document.createElement('div');
     div.innerHTML = `
