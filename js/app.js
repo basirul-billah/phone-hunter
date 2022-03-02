@@ -3,14 +3,25 @@ const loadData = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
 
+    const searchDiv = document.getElementById('search-result');
+
     // clear search field
     searchField.value = '';
 
-    // fetch data
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayData(data.data));
+    if (searchText == '') {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <p class="text-center text-danger">Please enter a search term.</p>
+        `;
+        searchDiv.appendChild(div);
+    }
+    else {
+        // fetch data
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displayData(data.data));
+    }
 }
 
 // toggles spinner on/off 
@@ -35,7 +46,7 @@ const displayData = data => {
     spinnerToggle('block');
 
     // show results
-    if(data.length == 0) {
+    if (data.length == 0) {
         const div = document.createElement('div');
         div.innerHTML = `
             <p class="text-center text-danger">No results found.</p>
