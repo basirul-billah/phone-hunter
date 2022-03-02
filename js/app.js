@@ -1,7 +1,11 @@
 const loadData = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
+
+    // clear search field
     searchField.value = '';
+
+    // fetch data
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
         .then(res => res.json())
@@ -10,6 +14,11 @@ const loadData = () => {
 
 const displayData = data => {
     const searchDiv = document.getElementById('search-result');
+
+    // clear previous search results
+    searchDiv.textContent = '';
+
+    // show results
     data.forEach(data => {
         const div = document.createElement('div');
         const phoneId = data.slug;
@@ -50,7 +59,12 @@ const loadDetails = (phoneId) => {
 const displayDetails = id => {
     const idTag = id.data;
     const detailDiv = document.getElementById('show-details');
+
     const div = document.createElement('div');
+    
+    // clear previous search results
+    div.textContent = '';
+
     div.innerHTML = `
         <div class="modal-dialog modal-lg">
             <img src="${idTag.image}" alt="">
@@ -69,7 +83,7 @@ const displayDetails = id => {
                     </tr>
                     <tr>
                         <th>Sensors</th>
-                        <td>${idTag.sensors}</td>
+                        <td>${idTag.mainFeatures.sensors}</td>
                     </tr>
                     <tr>
                         <th>Storage</th>
@@ -77,11 +91,11 @@ const displayDetails = id => {
                     </tr>
                     <tr>
                         <th>Others</th>
-                        <td>${idTag.others}</td>
+                        <td>${idTag?.others ?? 'Not available'}</td>
                     </tr>
                     <tr>
                         <th>Others</th>
-                        <td>${idTag.releaseDate}</td>
+                        <td>${idTag?.releaseDate ?? 'Not available'}</td>
                     </tr>
                 </table>
         </div>
