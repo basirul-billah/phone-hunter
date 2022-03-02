@@ -118,24 +118,24 @@ const displayDetails = id => {
             </div>
             <div class="modal-body row g-4">
                 <div class="col-md-4">
-                    <img src="${idTag.image ?? 'Not available'}">
+                    <img src="${idTag?.image ?? 'Not available'}">
                 </div>
                 <div class="col-md-8">
-                    <h5 class="mt-2">${idTag.name ?? 'Not available'}</h5>
+                    <h5 class="mt-2">${idTag?.name ?? 'Not available'}</h5>
                     <p>${idTag?.releaseDate ?? 'Not available'}</p>
                     <hr>
-                    <p>Brand: ${idTag.brand ?? 'Not available'}</p>
-                    <p>Chipset: ${idTag.mainFeatures.chipSet ?? 'Not available'}</p>
-                    <p>Display Size: ${idTag.mainFeatures.displaySize ?? 'Not available'}</p>
-                    <p>Memory: ${idTag.mainFeatures.memory ?? 'Not available'}</p>
-                    <p>Sensors: ${idTag.mainFeatures.sensors ?? 'Not available'}</p>
-                    <p>Storage: ${idTag.mainFeatures.storage ?? 'Not available'}</p>
-                    <p>Bluetooth: ${idTag.others.Bluetooth ?? 'Not available'}</p>
-                    <p>GPS: ${idTag.others.GPS ?? 'Not available'}</p>
-                    <p>NFC: ${idTag.others.NFC ?? 'Not available'}</p>
-                    <p>Radio: ${idTag.others.Radio ?? 'Not available'}</p>
-                    <p>USB: ${idTag.others.USB ?? 'Not available'}</p>
-                    <p>WLAN: ${idTag.others.WLAN ?? 'Not available'}</p>
+                    <p>Brand: ${idTag?.brand ?? 'Not available'}</p>
+                    <p>Chipset: ${idTag?.mainFeatures?.chipSet ?? 'Not available'}</p>
+                    <p>Display Size: ${idTag?.mainFeatures?.displaySize ?? 'Not available'}</p>
+                    <p>Memory: ${idTag?.mainFeatures?.memory ?? 'Not available'}</p>
+                    <p>Sensors: ${idTag?.mainFeatures?.sensors ?? 'Not available'}</p>
+                    <p>Storage: ${idTag?.mainFeatures?.storage ?? 'Not available'}</p>
+                    <p>Bluetooth: ${idTag?.others?.Bluetooth ?? 'Not available'}</p>
+                    <p>GPS: ${idTag?.others?.GPS ?? 'Not available'}</p>
+                    <p>NFC: ${idTag?.others?.NFC ?? 'Not available'}</p>
+                    <p>Radio: ${idTag?.others?.Radio ?? 'Not available'}</p>
+                    <p>USB: ${idTag?.others?.USB ?? 'Not available'}</p>
+                    <p>WLAN: ${idTag?.others?.WLAN ?? 'Not available'}</p>
                 </div>
             </div>
         </div>
