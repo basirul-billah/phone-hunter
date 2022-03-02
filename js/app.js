@@ -8,6 +8,9 @@ const loadData = () => {
     // clear search field
     searchField.value = '';
 
+    // closes modal if exists
+    closeModal();
+
     if (searchText == '') {
         const div = document.createElement('div');
         div.innerHTML = `
@@ -110,36 +113,15 @@ const displayDetails = id => {
             </div>
             <div class="modal-body">
                 <img src="${idTag.image ?? 'Not available'}">
-                <table class="table table-striped table-sm my-4">
-                    <tr>
-                        <th>Brand</th>
-                        <td>${idTag.brand ?? 'Not available'}</td>
-                    </tr>
-                    <tr>
-                        <th>Chipset</th>
-                        <td>${idTag.mainFeatures.chipSet ?? 'Not available'}</td>
-                    </tr>
-                    <tr>
-                        <th>Display Size</th>
-                        <td>${idTag.mainFeatures.displaySize ?? 'Not available'}</td>
-                    </tr>
-                    <tr>
-                        <th>Memory</th>
-                        <td>${idTag.mainFeatures.memory ?? 'Not available'}</td>
-                    </tr>
-                    <tr>
-                        <th>Sensors</th>
-                        <td>${idTag.mainFeatures.sensors ?? 'Not available'}</td>
-                    </tr>
-                    <tr>
-                        <th>Storage</th>
-                        <td>${idTag.mainFeatures.storage ?? 'Not available'}</td>
-                    </tr>
-                    <tr>
-                        <th>Release Date</th>
-                        <td>${idTag?.releaseDate ?? 'Not available'}</td>
-                    </tr>
-                </table>
+                <div>
+                    <p>Brand: ${idTag.brand ?? 'Not available'}</p>
+                    <p>Chipset: ${idTag.mainFeatures.chipSet ?? 'Not available'}</p>
+                    <p>Display Size: ${idTag.mainFeatures.displaySize ?? 'Not available'}</p>
+                    <p>Memory: ${idTag.mainFeatures.memory ?? 'Not available'}</p>
+                    <p>Sensors: ${idTag.mainFeatures.sensors ?? 'Not available'}</p>
+                    <p>Storage: ${idTag.mainFeatures.storage ?? 'Not available'}</p>
+                    <p>Release Date: ${idTag?.releaseDate ?? 'Not available'}</p>
+                </div>
             </div>
         </div>
     `
