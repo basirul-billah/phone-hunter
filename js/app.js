@@ -12,6 +12,7 @@ const loadData = () => {
     closeModal();
 
     if (searchText == '') {
+        searchDiv.textContent = '';
         const div = document.createElement('div');
         div.innerHTML = `
             <p class="text-center text-danger">Please enter a search term.</p>
