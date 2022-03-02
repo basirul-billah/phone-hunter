@@ -94,6 +94,9 @@ const loadDetails = (phoneId) => {
     // closes modal if any
     closeModal();
 
+    const scrollToTop = document.documentElement;
+    scrollToTop.scrollTop = 0;
+
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
     fetch(url)
         .then(res => res.json())
@@ -104,7 +107,6 @@ const loadDetails = (phoneId) => {
 const displayDetails = id => {
     const idTag = id.data;
     const detailDiv = document.getElementById('show-details');
-
     const div = document.createElement('div');
     div.classList.add('.modal-dialog.modal-lg');
 
