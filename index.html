@@ -25,19 +25,28 @@
     <main class="px-5">
 
         <!-- search box -->
-        <div class="row justify-content-center">
-            <div class="input-group m-2 w-50">
+        <div class="text-center">
+            <div class="input-group m-2 col-6">
                 <input id="search-field" type="text" class="form-control border-warning">
                 <button onclick="loadData()" class="btn btn-warning" type="button">Search</button>
             </div>
         </div>
 
-        <!-- search result -->
-        <div id="search-result">
-            <div class="col">
-                
+        <!-- show details -->
+        <div id="show-details" class="row g-4">
+            <div class="card mb-3">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
             </div>
         </div>
+
+        <!-- search result -->
+        <div id="search-result" class="row g-4"></div>
     </main>
 
     <!-- app.js link -->
